@@ -1,0 +1,19 @@
+fastapi==0.111.0
+uvicorn[standard]==0.30.0
+pandas==2.2.2
+numpy==1.26.4
+matplotlib==3.8.4
+openpyxl==3.1.2
+reportlab==4.2.2
+python-multipart==0.0.9
+
+
+# fastapi==0.111.0 : The core web framework used to build the backend API, providing routing, request handling, and response generation capabilities.   
+# uvicorn[standard]==0.30.0 : An ASGI server used to run the FastAPI application, enabling asynchronous request handling and improved performance.
+# pandas==2.2.2 : A powerful data manipulation and analysis library used for handling dataframes, performing data cleaning, and generating reports.
+# numpy==1.26.4 : A fundamental package for scientific computing in Python, used for numerical operations and array handling.
+# matplotlib==3.8.4 : A plotting library used for creating visualizations and charts in the generated reports.
+# openpyxl==3.1.2 : A library for reading and writing Excel files, used for generating Excel reports.
+# reportlab==4.2.2 : A library for generating PDF documents, used for creating PDF reports.
+# python-multipart==0.0.9 : A library for handling multipart form data, used for file uploads in the API.
+

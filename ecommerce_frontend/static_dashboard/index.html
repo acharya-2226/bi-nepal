@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nepal Ecommerce BI Dashboard (Static)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <div class="page-bg"></div>
+    <div class="accent-shape accent-a"></div>
+    <div class="accent-shape accent-b"></div>
+
+    <main class="layout" id="dashboardRoot">
+        <aside class="sidebar panel">
+            <p class="eyebrow">BI Navigator</p>
+            <h2>Analysis Scope</h2>
+            <p class="side-note">Select period and bucket to request scoped analytics from backend APIs.</p>
+
+            <form class="scope-form" id="scopeForm">
+                <label for="apiBaseInput">API Base URL</label>
+                <input id="apiBaseInput" type="url" placeholder="http://127.0.0.1:8002" />
+
+                <label for="periodSelect">Period</label>
+                <select id="periodSelect" name="period">
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="semiannual">Semi-Annual</option>
+                    <option value="annual">Annual</option>
+                </select>
+
+                <label for="bucketSelect">Bucket</label>
+                <select id="bucketSelect" name="bucket"></select>
+
+                <button class="btn primary" type="submit">Apply Scope</button>
+            </form>
+
+            <nav class="side-nav" aria-label="Dashboard sections">
+                <a href="#kpis">KPI Overview</a>
+                <a href="#trend">Trend Analysis</a>
+                <a href="#discounts">Discounts</a>
+                <a href="#profitability">Profitability</a>
+                <a href="#products">Products</a>
+                <a href="#inventory">Inventory</a>
+                <a href="#breakeven">Break-even</a>
+            </nav>
+        </aside>
+
+        <section class="container">
+            <header class="hero panel">
+                <div>
+                    <p class="eyebrow">Business Intelligence Console</p>
+                    <h1>Nepal Ecommerce Performance Dashboard</h1>
+                    <p class="hero-sub">Static frontend only. It fetches data from FastAPI and renders everything client-side.</p>
+                    <p class="active-period" id="activeScopeText">Active Scope: <strong>Monthly</strong></p>
+                </div>
+                <div class="hero-actions">
+                    <a id="pdfReportLink" class="btn primary" href="#" target="_blank" rel="noopener">Download PDF Report</a>
+                    <a id="excelReportLink" class="btn" href="#" target="_blank" rel="noopener">Download Excel Report</a>
+                </div>
+            </header>
+
+            <section class="panel warning" id="errorPanel" hidden>
+                <h2>Data Fetch Issues</h2>
+                <ul id="errorList"></ul>
+            </section>
+
+            <section id="kpis" class="kpi-grid" aria-live="polite">
+                <article class="kpi-card"><p class="kpi-label">Net Revenue</p><p class="kpi-value" id="kpiNetRevenue">N/A</p></article>
+                <article class="kpi-card"><p class="kpi-label">Net Profit</p><p class="kpi-value" id="kpiNetProfit">N/A</p></article>
+                <article class="kpi-card"><p class="kpi-label">Net Profit Margin</p><p class="kpi-value" id="kpiNetProfitMargin">N/A</p></article>
+                <article class="kpi-card"><p class="kpi-label">Cash Movement</p><p class="kpi-value" id="kpiCashMovement">N/A</p></article>
+                <article class="kpi-card"><p class="kpi-label">Inventory Turnover</p><p class="kpi-value" id="kpiInventoryTurnover">N/A</p></article>
+                <article class="kpi-card"><p class="kpi-label">Reorder Alerts</p><p class="kpi-value" id="kpiReorderAlerts">N/A</p></article>
+            </section>
+
+            <section class="kpi-grid derived-kpis">
+                <article class="kpi-card"><p class="kpi-label">Selected Period Revenue</p><p class="kpi-value" id="periodRevenue">NPR 0</p></article>
+                <article class="kpi-card"><p class="kpi-label">Selected Period Profit</p><p class="kpi-value" id="periodProfit">NPR 0</p></article>
+                <article class="kpi-card"><p class="kpi-label">Selected Period Margin</p><p class="kpi-value" id="periodMargin">0%</p></article>
+                <article class="kpi-card"><p class="kpi-label">Selected Net Cash</p><p class="kpi-value" id="periodNetCash">NPR 0</p></article>
+            </section>
+
+            <section id="trend" class="grid two">
+                <article class="panel">
+                    <h2 id="growthTitle">Monthly Revenue vs Profit</h2>
+                    <div id="growthChart" class="chart"></div>
+                </article>
+                <article class="panel">
+                    <h2 id="cashflowTitle">Monthly Cashflow</h2>
+                    <div id="cashflowChart" class="chart"></div>
+                </article>
+            </section>
+
+            <section class="panel">
+                <h2>Selected Buckets</h2>
+                <ul id="periodBucketList" class="bucket-list">
+                    <li>No period buckets available.</li>
+                </ul>
+            </section>
+
+            <section id="profitability" class="grid two">
+                <article class="panel">
+                    <h2>Expense Breakdown</h2>
+                    <div id="expenseChart" class="chart"></div>
+                </article>
+                <article class="panel stats-list" id="profitabilityList"></article>
+            </section>
+
+            <section id="discounts" class="grid two">
+                <article class="panel stats-list" id="discountList"></article>
+                <article class="panel">
+                    <h2>Monthly Discount Rows (Scoped)</h2>
+                    <div class="table-wrap compact">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>MonthNum</th>
+                                    <th>Monthly Discount (NPR)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="discountTableBody"></tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+
+            <section id="products" class="panel">
+                <h2>Top 10 Products by Revenue</h2>
+                <label class="table-filter">
+                    <span>Search Product Table</span>
+                    <input id="productsFilter" type="search" placeholder="Type item name, category, or ID" />
+                </label>
+                <div class="table-wrap">
+                    <table id="productsTable">
+                        <thead>
+                            <tr>
+                                <th>Item ID</th>
+                                <th>Item Name</th>
+                                <th>Category</th>
+                                <th>Qty Sold</th>
+                                <th>Revenue (NPR)</th>
+                                <th>Profit (NPR)</th>
+                                <th>Contribution %</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="grid two">
+                <article class="panel">
+                    <h2>Revenue by Category</h2>
+                    <div class="table-wrap compact">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Revenue (NPR)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="categoryRevenueBody"></tbody>
+                        </table>
+                    </div>
+                </article>
+                <article class="panel">
+                    <h2>Monthly Expenses Rows (Scoped)</h2>
+                    <div class="table-wrap compact">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Total Expense (NPR)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="monthlyExpenseBody"></tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+
+            <section id="inventory" class="grid two">
+                <article class="panel">
+                    <h2>Reorder Risk Items</h2>
+                    <label class="table-filter">
+                        <span>Search Reorder Table</span>
+                        <input id="reorderFilter" type="search" placeholder="Type item name or ID" />
+                    </label>
+                    <div class="table-wrap compact">
+                        <table id="reorderTable">
+                            <thead>
+                                <tr>
+                                    <th>Item ID</th>
+                                    <th>Item Name</th>
+                                    <th>Closing Stock</th>
+                                    <th>Reorder Level</th>
+                                </tr>
+                            </thead>
+                            <tbody id="reorderBody"></tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <article id="breakeven" class="panel">
+                    <h2>Break-even (Top 20 Easiest)</h2>
+                    <label class="table-filter">
+                        <span>Search Break-even Table</span>
+                        <input id="breakevenFilter" type="search" placeholder="Type item name or ID" />
+                    </label>
+                    <div class="table-wrap compact">
+                        <table id="breakevenTable">
+                            <thead>
+                                <tr>
+                                    <th>Item ID</th>
+                                    <th>Item Name</th>
+                                    <th>Break-even Units</th>
+                                    <th>Contribution / Unit</th>
+                                </tr>
+                            </thead>
+                            <tbody id="breakevenBody"></tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+
+            <section class="panel footer-note">
+                <h2>How This Dashboard Works</h2>
+                <p>This static page calls FastAPI endpoints under <strong>/analysis/*</strong> and passes <strong>period</strong> and optional <strong>bucket</strong> as query params.</p>
+            </section>
+
+            <section class="panel" id="backendDebug">
+                <h2>Backend JSON Inspector</h2>
+                <p class="hero-sub">Raw backend response for the active scope.</p>
+                <div class="debug-controls">
+                    <label for="endpointSelect">Endpoint</label>
+                    <select id="endpointSelect"></select>
+                </div>
+                <pre id="endpointJson" class="json-box">Loading backend payload...</pre>
+                <h3>Request Errors</h3>
+                <pre id="errorJson" class="json-box">[]</pre>
+            </section>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+.venv/
+ecommerce_backend/.venv/
+
+ecommerce_frontend/env/

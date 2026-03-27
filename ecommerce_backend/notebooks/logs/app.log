@@ -1,0 +1,98 @@
+2026-03-04 18:20:55 | INFO     | pipeline.runner | --> Stage: ingest
+2026-03-04 18:20:55 | INFO     | pipeline.stage_01_ingest | Ingesting: Data Structure.xlsx
+2026-03-04 18:20:57 | INFO     | pipeline.stage_01_ingest | Loaded  Inventory:112  Sales:10000  Purchase:378  Expenses:12
+2026-03-04 18:20:57 | INFO     | pipeline.runner | <-- Stage: ingest (1.506s)
+2026-03-04 18:20:57 | INFO     | pipeline.runner | --> Stage: clean
+2026-03-04 18:20:57 | INFO     | pipeline.stage_02_clean | Cleaned sales: removed 0 fully-empty rows
+2026-03-04 18:20:57 | INFO     | pipeline.stage_02_clean | Cleaned purch: removed 0 fully-empty rows
+2026-03-04 18:20:57 | INFO     | pipeline.runner | <-- Stage: clean (0.103s)
+2026-03-04 18:20:57 | INFO     | pipeline.runner | --> Stage: transform
+2026-03-04 18:20:57 | INFO     | pipeline.stage_03_transform | Transform done. GrossRevenue=61,258,985  NetRevenue=59,510,472
+2026-03-04 18:20:57 | INFO     | pipeline.runner | <-- Stage: transform (0.004s)
+2026-03-04 18:20:57 | INFO     | pipeline.runner | Pipeline complete in 1.623s
+2026-03-04 18:20:57 | INFO     | analysis.profitability | Profitability: NetProfit=12,202,347  GPM=27.84%
+2026-03-04 18:20:57 | INFO     | analysis.discounts | Discounts: 2.85% of gross revenue
+2026-03-04 18:20:57 | INFO     | analysis.inventory | Inventory: turnover=1.73x  DIO=211.5d
+2026-03-04 18:20:57 | INFO     | analysis.monthly_growth | Monthly growth computed.
+2026-03-04 18:20:57 | INFO     | analysis.breakeven | Break-even: BEU=1,382  MoS=93.46%
+2026-03-04 18:20:57 | INFO     | analysis.cashflow | Cashflow: NetCashMovement=30,260,772
+2026-03-04 18:20:58 | INFO     | analysis.profitability | Profitability: NetProfit=12,202,347  GPM=27.84%
+2026-03-04 18:20:58 | INFO     | analysis.discounts | Discounts: 2.85% of gross revenue
+2026-03-04 18:20:58 | INFO     | analysis.inventory | Inventory: turnover=1.73x  DIO=211.5d
+2026-03-04 18:20:58 | INFO     | analysis.products | Product metrics computed.
+2026-03-04 18:20:58 | INFO     | analysis.expenses | Expenses: OpEx%=7.33
+2026-03-04 18:20:58 | INFO     | analysis.monthly_growth | Monthly growth computed.
+2026-03-04 18:20:58 | INFO     | analysis.breakeven | Break-even: BEU=1,382  MoS=93.46%
+2026-03-04 18:20:58 | INFO     | analysis.cashflow | Cashflow: NetCashMovement=30,260,772
+2026-03-04 18:20:58 | INFO     | reports.report_generator | PDF saved: data\exports\BI_Report.pdf
+2026-03-04 18:20:58 | INFO     | analysis.profitability | Profitability: NetProfit=12,202,347  GPM=27.84%
+2026-03-04 18:20:58 | INFO     | analysis.discounts | Discounts: 2.85% of gross revenue
+2026-03-04 18:20:58 | INFO     | analysis.inventory | Inventory: turnover=1.73x  DIO=211.5d
+2026-03-04 18:20:58 | INFO     | analysis.products | Product metrics computed.
+2026-03-04 18:20:58 | INFO     | analysis.expenses | Expenses: OpEx%=7.33
+2026-03-04 18:20:58 | INFO     | analysis.monthly_growth | Monthly growth computed.
+2026-03-04 18:20:58 | INFO     | analysis.breakeven | Break-even: BEU=1,382  MoS=93.46%
+2026-03-04 18:20:58 | INFO     | analysis.cashflow | Cashflow: NetCashMovement=30,260,772
+2026-03-04 18:20:58 | INFO     | reports.report_generator | Excel saved: data\exports\BI_Report.xlsx
+2026-03-20 21:01:52 | INFO     | pipeline.stage_01_ingest | Ingesting: ~$Data Structure.xlsx
+2026-03-20 21:02:06 | INFO     | pipeline.stage_01_ingest | Ingesting: Data Structure.xlsx
+2026-03-20 21:02:10 | INFO     | pipeline.stage_01_ingest | Loaded  Inventory:112  Sales:10000  Purchase:378  Expenses:12
+2026-03-20 21:02:10 | INFO     | pipeline.stage_02_clean | Cleaned sales: removed 0 fully-empty rows
+2026-03-20 21:02:10 | INFO     | pipeline.stage_02_clean | Cleaned purch: removed 0 fully-empty rows
+2026-03-20 21:02:10 | INFO     | pipeline.stage_02_clean | Clean summary: inv -0 dup, sales -0 dup, purch -0 dup
+2026-03-20 21:02:10 | INFO     | pipeline.stage_03_transform | Transform done. GrossRevenue=54,584,951  NetRevenue=53,019,062
+2026-03-20 21:02:21 | INFO     | analysis.profitability | Profitability: NetProfit=5,573,644  GPM=18.75%
+2026-03-20 21:02:21 | INFO     | analysis.discounts | Discounts: 2.87% of gross revenue
+2026-03-20 21:02:21 | INFO     | analysis.inventory | Inventory: turnover=1.71x  DIO=213.7d
+2026-03-20 21:02:21 | INFO     | analysis.products | Product metrics computed.
+2026-03-20 21:02:21 | INFO     | analysis.expenses | Expenses: OpEx%=8.23
+2026-03-20 21:02:21 | INFO     | analysis.monthly_growth | Monthly growth computed.
+2026-03-20 21:02:21 | INFO     | analysis.breakeven | Break-even: BEU=1,586  MoS=92.10%
+2026-03-20 21:02:21 | INFO     | analysis.cashflow | Cashflow: NetCashMovement=23,427,860
+2026-03-20 21:03:47 | INFO     | pipeline.stage_01_ingest | Ingesting: Data Structure.xlsx
+2026-03-20 21:03:49 | INFO     | pipeline.stage_01_ingest | Loaded  Inventory:112  Sales:10000  Purchase:378  Expenses:12
+2026-03-20 21:03:49 | INFO     | pipeline.stage_02_clean | Cleaned sales: removed 0 fully-empty rows
+2026-03-20 21:03:49 | INFO     | pipeline.stage_02_clean | Cleaned purch: removed 0 fully-empty rows
+2026-03-20 21:03:49 | INFO     | pipeline.stage_02_clean | Clean summary: inv -0 dup, sales -0 dup, purch -0 dup
+2026-03-20 21:03:49 | INFO     | pipeline.stage_03_transform | Transform done. GrossRevenue=54,584,951  NetRevenue=53,019,062
+2026-03-20 21:03:54 | INFO     | analysis.profitability | Profitability: NetProfit=5,573,644  GPM=18.75%
+2026-03-20 21:03:54 | INFO     | analysis.discounts | Discounts: 2.87% of gross revenue
+2026-03-20 21:03:54 | INFO     | analysis.inventory | Inventory: turnover=1.71x  DIO=213.7d
+2026-03-20 21:03:54 | INFO     | analysis.products | Product metrics computed.
+2026-03-20 21:03:54 | INFO     | analysis.expenses | Expenses: OpEx%=8.23
+2026-03-20 21:03:54 | INFO     | analysis.monthly_growth | Monthly growth computed.
+2026-03-20 21:03:54 | INFO     | analysis.breakeven | Break-even: BEU=1,586  MoS=92.10%
+2026-03-20 21:03:54 | INFO     | analysis.cashflow | Cashflow: NetCashMovement=23,427,860
+2026-03-20 21:04:00 | INFO     | analysis.profitability | Profitability: NetProfit=5,573,644  GPM=18.75%
+2026-03-20 21:04:00 | INFO     | analysis.discounts | Discounts: 2.87% of gross revenue
+2026-03-20 21:04:00 | INFO     | analysis.inventory | Inventory: turnover=1.71x  DIO=213.7d
+2026-03-20 21:04:00 | INFO     | analysis.products | Product metrics computed.
+2026-03-20 21:04:00 | INFO     | analysis.expenses | Expenses: OpEx%=8.23
+2026-03-20 21:04:00 | INFO     | analysis.monthly_growth | Monthly growth computed.
+2026-03-20 21:04:00 | INFO     | analysis.breakeven | Break-even: BEU=1,586  MoS=92.10%
+2026-03-20 21:04:00 | INFO     | analysis.cashflow | Cashflow: NetCashMovement=23,427,860
+2026-03-20 21:04:00 | INFO     | reports.report_generator | PDF saved: data\exports\BI_Report.pdf
+2026-03-20 21:04:00 | INFO     | analysis.profitability | Profitability: NetProfit=5,573,644  GPM=18.75%
+2026-03-20 21:04:00 | INFO     | analysis.discounts | Discounts: 2.87% of gross revenue
+2026-03-20 21:04:00 | INFO     | analysis.inventory | Inventory: turnover=1.71x  DIO=213.7d
+2026-03-20 21:04:00 | INFO     | analysis.products | Product metrics computed.
+2026-03-20 21:04:00 | INFO     | analysis.expenses | Expenses: OpEx%=8.23
+2026-03-20 21:04:00 | INFO     | analysis.monthly_growth | Monthly growth computed.
+2026-03-20 21:04:00 | INFO     | analysis.breakeven | Break-even: BEU=1,586  MoS=92.10%
+2026-03-20 21:04:00 | INFO     | analysis.cashflow | Cashflow: NetCashMovement=23,427,860
+2026-03-20 21:04:00 | INFO     | reports.report_generator | Excel saved: data\exports\BI_Report.xlsx
+2026-03-20 21:04:03 | INFO     | pipeline.stage_03_transform | Transform done. GrossRevenue=54,584,951  NetRevenue=53,019,062
+2026-03-20 21:23:46 | INFO     | pipeline.stage_01_ingest | Ingesting: Data Structure.xlsx
+2026-03-20 21:23:48 | INFO     | pipeline.stage_01_ingest | Loaded  Inventory:112  Sales:10000  Purchase:378  Expenses:12
+2026-03-20 21:23:48 | INFO     | pipeline.stage_02_clean | Cleaned sales: removed 0 fully-empty rows
+2026-03-20 21:23:48 | INFO     | pipeline.stage_02_clean | Cleaned purch: removed 0 fully-empty rows
+2026-03-20 21:23:49 | INFO     | pipeline.stage_02_clean | Clean summary: inv -0 dup, sales -0 dup, purch -0 dup
+2026-03-20 21:23:49 | INFO     | pipeline.stage_03_transform | Transform done. GrossRevenue=54,584,951  NetRevenue=53,019,062
+2026-03-20 21:23:49 | INFO     | analysis.profitability | Profitability: NetProfit=5,573,644  GPM=18.75%
+2026-03-20 21:23:49 | INFO     | analysis.discounts | Discounts: 2.87% of gross revenue
+2026-03-20 21:23:49 | INFO     | analysis.inventory | Inventory: turnover=1.71x  DIO=213.7d
+2026-03-20 21:23:49 | INFO     | analysis.products | Product metrics computed.
+2026-03-20 21:23:49 | INFO     | analysis.expenses | Expenses: OpEx%=8.23
+2026-03-20 21:23:49 | INFO     | analysis.monthly_growth | Monthly growth computed.
+2026-03-20 21:23:49 | INFO     | analysis.breakeven | Break-even: BEU=1,586  MoS=92.10%
+2026-03-20 21:23:49 | INFO     | analysis.cashflow | Cashflow: NetCashMovement=23,427,860
